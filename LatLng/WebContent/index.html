@@ -102,7 +102,7 @@ function onMapClick(e) {
         .setLatLng(e.latlng)
         .bindPopup("Aggiungi un nuovo pin con l'apposito form")
         .addTo(myMap);
-    	document.getElementById("latlng").value = "Sei qui: " + e.latlng.toString();
+    	document.getElementById("latlng").value = e.latlng.lat+", "+e.latlng.lng;
 }
 
 
