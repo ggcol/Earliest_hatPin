@@ -37,12 +37,12 @@ html, body, #map {
 	
 	<form action="insertPin" method="get">
 		<label for="titolo">Titolo: </label> <br><br> 
-		<input type="text" id="titolo" name="titolo"><br><br> 
+		<input type="text" id="titolo" name="titolo" /><br><br> 
 		<label for="corpo">Cosa vuoi raccontare?</label> 
-		<input type="text" id="corpo" name="corpo"><br><br>
-		<input type="hidden" id="latlng" name="latlng">
+		<input type="text" id="corpo" name="corpo" /><br><br>
+		<input type="hidden" id="latlng" name="latlng" value="" />
 		
-
+		
 		<fieldset>
 			<legend>Scope entry</legend>
 			Solo io <input type="radio" name="scope" value="userOnly" /> Amici <input
@@ -53,10 +53,11 @@ html, body, #map {
 		<input type="submit" value="Submit Pin">
 
 	</form>
+	
+	<button onclick="leggiPin()">Prova</button>
 
 
 
-	<!-- inizializzazione della mappa con coordinate sede Begear Milano -->
 	<!-- .setView([45.483388, 9.200729], 13) -->
 	<script>
     var myMap = L.map('map').locate({setView: true, maxZoom: 16});
@@ -85,6 +86,10 @@ html, body, #map {
 
 	<!-- prova lettura pin -->
 	<script>
+	function leggiPin(newMarker) {
+		coords = newMarker.getLatLng();
+		return coords;
+	}
     
 </script>
 
@@ -96,13 +101,17 @@ function onMapClick(e) {
     newMarker
         .setLatLng(e.latlng)
         .bindPopup("Aggiungi un nuovo pin con l'apposito form")
-        .addTo(myMap)
-        document.getElementById("latlng").innerHTML = ("Sei qui: " + e.latlng.toString());
+        .addTo(myMap);
+    	document.getElementById("latlng").value = "Sei qui: " + e.latlng.toString();
 }
+
+
 
 myMap.on('click', onMapClick);
 
 </script>
+
+
 
 
 </body>
