@@ -23,14 +23,27 @@ public class HibCon {
 	}
 	
 	/*
-	 * Schema prova_testi
-	 * Tabella location
+	 * Schema hatpin
+	 * 
+	 * Tabella pin
 	 * colonne:
-	 * idLocation
+	 * 
+	 * idPin
 	 * latlng
 	 * titolo
 	 * corpo
 	 * ref_img
+	 * 
+	 * Tabella utente
+	 * colonne:
+	 * 
+	 * idUtente
+	 * username
+	 * nome
+	 * cognome
+	 * bio
+	 * email
+	 * password
 	 */
 }
 

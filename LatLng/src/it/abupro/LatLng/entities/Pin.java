@@ -1,5 +1,6 @@
 package it.abupro.LatLng.entities;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,13 +17,13 @@ import it.abupro.LatLng.connection.HibCon;
 
 
 @Entity
-@Table(name="location")
-public class Location {
+@Table(name="pin")
+public class Pin {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idLocation")
-	private int idLocation;
+	@Column(name="idPin")
+	private int idPin;
 	@Column(name="latlng")
 	private String latlng;
 	@Column(name="titolo")
@@ -33,8 +34,8 @@ public class Location {
 	private String ref_img;
 	
 	
-	public Location(int idLocation, String latlng, String titolo, String corpo, String ref_img) {
-		setIdLocation(idLocation);
+	public Pin(int idPin, String latlng, String titolo, String corpo, String ref_img) {
+		setIdPin(idPin);
 		setLatlng(latlng);
 		setTitolo(titolo);
 		setCorpo(corpo);
@@ -42,14 +43,14 @@ public class Location {
 		
 	}
 	
-	public Location() {}
+	public Pin() {}
 
-	public int getIdLocation() {
-		return idLocation;
+	public int getIdPin() {
+		return idPin;
 	}
 
-	public void setIdLocation(int idLocation) {
-		this.idLocation = idLocation;
+	public void setIdPin(int idPin) {
+		this.idPin = idPin;
 	}
 
 	public String getLatlng() {
@@ -84,16 +85,35 @@ public class Location {
 		this.ref_img = ref_img;
 	}
 	
-	public void newEntry(Location l) {
-	HibCon h = new HibCon();
-	try (Session s = h.getSessionFactory().openSession()) {
+	public void newEntry(Pin l) {
+	HibCon hC = new HibCon();
+	try (Session s = hC.getSessionFactory().openSession()) {
 		s.beginTransaction();
 		s.save(l);
 		s.getTransaction().commit();
 	}
 	}
 	
+	public String LatLngToString() {
+		String latlng = getLatlng().toString();
+		return latlng;
+	}
 	
+	public String TitoloToString() {
+		String titolo = getTitolo().toString();
+		return titolo;
+	}
+	
+	public String CorpoToString() {
+		String corpo = getCorpo().toString();
+		return corpo;
+	}
+	
+	
+	
+	
+	
+
 	
 	
 

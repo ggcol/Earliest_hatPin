@@ -29,17 +29,12 @@ public class InsertPin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Location l1 = new Location();
+	Pin p1 = new Pin();
 		
-		l1.setTitolo(request.getParameter("titolo"));
-		l1.setCorpo(request.getParameter("corpo"));
-//		Sei qui: LatLng(45.501429, 9.223709)
-		
-		String latlng = (request.getParameter("latlng"));
-		
-		l1.setLatlng(latlng);
-		
-		l1.newEntry(l1);
+		p1.setTitolo(request.getParameter("titolo"));
+		p1.setCorpo(request.getParameter("corpo"));
+		p1.setLatlng(request.getParameter("latlng"));
+		p1.newEntry(p1);
 		
 		response.sendRedirect("index.html");
 	}

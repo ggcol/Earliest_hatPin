@@ -79,9 +79,26 @@ html, body, #map {
     
 </script>
 
-	<!-- aggiungo pin -->
-	<script>var provaMarker = L.marker([45.4446143, 9.2084152]).addTo(myMap);
-    provaMarker.bindPopup("<b>Qua avevo il locale</b><br>Dio bestia.");
+	<!-- aggiungo pin Locale-->
+	<script>var pinLocale = L.marker([45.4446143, 9.2084152]).addTo(myMap);
+    pinLocale.bindPopup("<b>The White Flag</b><br><a href='http://www.thewhiteflag.it/'>Go to Site</a>");
+</script>
+
+<!--  aggiungo pin prova Cascina Martesana-->
+<script>
+var provaCiccia = L.marker([45.5031887, 9.2292022]).addTo(myMap);
+provaCiccia.bindPopup("<b>Cascina Martesana</b><br>Bruciasse male.");
+</script>
+
+
+	<!-- aggiungo pin Duomo-->
+	<script>var Duomo = L.marker([45.464159, 9.1911128]).addTo(myMap);
+    Duomo.bindPopup("<b>Duomo di Milano</b><br>Vediamo.");
+	</script>
+	
+		<!-- aggiungo pin Ippodromo-->
+	<script>var Ippodromo = L.marker([45.482589075374136, 9.132369160652162]).addTo(myMap);
+    Ippodromo.bindPopup("<b>Vecchio Ippodromo</b><br><a href='https://www.ippodromisnai.it/sansirogaloppo/'>Go to Site</a>");
 </script>
 
 	<!-- prova lettura pin -->
